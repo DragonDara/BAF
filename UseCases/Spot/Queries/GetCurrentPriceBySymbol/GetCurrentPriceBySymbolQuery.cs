@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BAF.UseCases.Spot.Queries
 {
-    public class GetCurrentPriceByCoinQuery: IRequest<BinancePriceDto>
+    public class GetCurrentPriceBySymbolQuery: IRequest<BinancePriceDto>
     {
         public string Symbol;
-        public GetCurrentPriceByCoinQuery(string symbol)
+        public GetCurrentPriceBySymbolQuery(string symbol)
         {
             Symbol = symbol;
         }

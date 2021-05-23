@@ -11,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace BAF.UseCases.Spot.Queries
 {
-    internal class GetCurrentPriceByCoinQueryHandler : IRequestHandler<GetCurrentPriceByCoinQuery, BinancePriceDto>
+    internal class GetCurrentPriceBySymbolHandler : IRequestHandler<GetCurrentPriceBySymbolQuery, BinancePriceDto>
     {
         private readonly IBinanceClient _binanceClient;
         private readonly IMapper _mapper;
 
-        public GetCurrentPriceByCoinQueryHandler(IBinanceClient binanceClient, IMapper mapper)
+        public GetCurrentPriceBySymbolHandler(IBinanceClient binanceClient, IMapper mapper)
         {
             _binanceClient = binanceClient ?? throw new ArgumentNullException(nameof(binanceClient));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<BinancePriceDto> Handle(GetCurrentPriceByCoinQuery request, CancellationToken cancellationToken)
+        public async Task<BinancePriceDto> Handle(GetCurrentPriceBySymbolQuery request, CancellationToken cancellationToken)
         {
             try
             {

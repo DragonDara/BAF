@@ -1,5 +1,7 @@
 ﻿using BAF.UseCases.Spot.Dto;
 using BAF.UseCases.Spot.Queries;
+using BAF.UseCases.Symbol.Dto;
+using BAF.UseCases.Symbol.GetEntryPointBySymbol;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -22,11 +24,11 @@ namespace BAF.Controller.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpGet("get-current-price-by-coin/{symbol}")]
-        public async Task<BinancePriceDto> GetCurrentPriceByCoinAsync(string symbol)
+        [HttpGet("get-entry-point/{symbol}")]
+        public async Task<SymbolEntryPointDto> GetEntryPointAsync(string symbol)
         {
             // TODO Apply here cancellation token and figure out why it needs
-            return await _mediator.Send(new GetCurrentPriceByCoinQuery(symbol));
+            return await _mediator.Send(new GetEntryPointBySymbolQuery(symbol));
         }
     }
 }
