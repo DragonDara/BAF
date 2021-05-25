@@ -1,6 +1,4 @@
-﻿using BAF.UseCases.Spot.Dto;
-using BAF.UseCases.Spot.Queries;
-using BAF.UseCases.Symbol.Dto;
+﻿using BAF.UseCases.Symbol.Dto;
 using BAF.UseCases.Symbol.GetEntryPointBySymbol;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,11 +22,11 @@ namespace BAF.Controller.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpGet("get-entry-point/{symbol}")]
-        public async Task<SymbolEntryPointDto> GetEntryPointAsync(string symbol)
+        [HttpGet("get-open-position/{symbol}")]
+        public async Task<OpenPositionDto> GetOpenPositionBySymbolAsync(string symbol)
         {
             // TODO Apply here cancellation token and figure out why it needs
-            return await _mediator.Send(new GetEntryPointBySymbolQuery(symbol));
+            return await _mediator.Send(new GetOpenPositionBySymbolQuery(symbol));
         }
     }
 }
