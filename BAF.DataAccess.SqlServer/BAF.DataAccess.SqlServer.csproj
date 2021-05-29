@@ -23,8 +23,4 @@
     <ProjectReference Include="..\BAF.Entities\BAF.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
-
 </Project>

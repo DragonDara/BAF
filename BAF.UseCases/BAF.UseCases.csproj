@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Spot\Commands\" />
+    <Compile Remove="Spot\Commands\**" />
+    <EmbeddedResource Remove="Spot\Commands\**" />
+    <None Remove="Spot\Commands\**" />
   </ItemGroup>
 
   <ItemGroup>
