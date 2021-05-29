@@ -1,4 +1,5 @@
 using BAF.UseCases;
+using BAF.DataAccess.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,7 @@ namespace BAF.Controller
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDataAccessSqlServer(Configuration["ConnectionString:SqlServer"]);
             services.AddUseCases();
             services.AddControllers();
             services.AddSwaggerGen(c =>

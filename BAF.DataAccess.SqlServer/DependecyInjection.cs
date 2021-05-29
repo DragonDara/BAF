@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BAF.DataAccess.MSSQL
+namespace BAF.DataAccess.SqlServer
 {
     public static class DependecyInjection
     {
