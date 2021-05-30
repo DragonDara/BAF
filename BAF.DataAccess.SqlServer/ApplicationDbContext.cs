@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace BAF.DataAccess.SqlServer
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
-        public virtual DbSet<User> Users {get;set;}
+
+        public DbSet<User> Users { get; set; }
+       // public Task<int> SaveChangesAsync() => base.SaveChangesAsync();
 
     }
+  
 }

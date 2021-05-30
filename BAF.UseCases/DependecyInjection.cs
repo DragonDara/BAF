@@ -1,4 +1,5 @@
-﻿using Binance.Net;
+﻿using BAF.UseCases.Auth.ApplicationServices;
+using Binance.Net;
 using Binance.Net.Interfaces;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,7 @@ namespace BAF.UseCases
             service.AddMediatR(Assembly.GetExecutingAssembly());
             service.AddTransient<IBinanceClient, BinanceClient>();
             service.AddAutoMapper(Assembly.GetExecutingAssembly());
+            service.AddScoped<HashBuilder>();
         }
     }
 }

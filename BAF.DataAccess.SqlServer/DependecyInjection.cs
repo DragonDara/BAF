@@ -9,7 +9,7 @@ namespace BAF.DataAccess.SqlServer
         {
             services
                 .AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(connectionString));
-            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             return services;
         }
     }
