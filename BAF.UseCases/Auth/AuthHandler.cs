@@ -31,7 +31,7 @@ namespace BAF.UseCases.Auth
 
         public async Task<Unit> Handle(AuthQuery request, CancellationToken cancellationToken)
         {
-            var userExist = _context.Users.Where(u => u.UserId == request.userDto.AuthId).Any();
+            var userExist = _context.Users.Where(u => u.UserId == request.userDto.UserId).Any();
             if (userExist) throw new UserAlreadyExistsException();
            
             request.userDto.ApiKeyHash = _hash.CreateHash(request.userDto.ApiKeyHash);

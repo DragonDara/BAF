@@ -8,7 +8,8 @@ namespace BAF.UseCases.Auth.Dto
 {
     public class UserDto
     {
-        public string AuthId { get; set; }
+        public string UserId { get; set; }
+        public string Password { get; set; }
         public string ApiKeyHash { get; set; }
         public string ApiSecretValueHash { get; set; }
     }
