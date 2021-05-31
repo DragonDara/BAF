@@ -8,7 +8,9 @@ namespace BAF.Entities
     public class User
     {
         [Key]
-        public string AuthId { get; set; }
+        public string UserId { get; set; }
+        [Required]
+        public string Password { get; set; }
         [Required]
         public string ApiKeyHash { get; set; }
         [Required]
