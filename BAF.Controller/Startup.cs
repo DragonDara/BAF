@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BAF.Controller.Middleware;
 
 namespace BAF.Controller
 {
@@ -47,6 +48,7 @@ namespace BAF.Controller
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAF.Controller v1"));
             }
 
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
 
             app.UseRouting();

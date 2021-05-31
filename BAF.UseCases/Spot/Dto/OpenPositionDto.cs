@@ -22,5 +22,6 @@ namespace BAF.UseCases.Symbol.Dto
                     : -1 * Convert.ToDecimal(String.Format("{0:0.00}", Math.Abs(profit)));
             }
         }
+
     }
 }

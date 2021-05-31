@@ -15,7 +15,6 @@ namespace BAF.DataAccess.SqlServer
         { }
 
         public DbSet<User> Users { get; set; }
-       // public Task<int> SaveChangesAsync() => base.SaveChangesAsync();
 
     }
   

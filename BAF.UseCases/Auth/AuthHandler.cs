@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BAF.DataAccess.SqlServer;
 using BAF.Entities;
+using BAF.Entities.Exceptions;
 using BAF.UseCases.Auth.ApplicationServices;
 using Binance.Net.Interfaces;
 using MediatR;
@@ -30,6 +31,9 @@ namespace BAF.UseCases.Auth
 
         public async Task<Unit> Handle(AuthQuery request, CancellationToken cancellationToken)
         {
+            var userExist = _context.Users.Where(u => u.UserId == request.userDto.AuthId).Any();
+            if (userExist) throw new UserAlreadyExistsException();
+           
             request.userDto.ApiKeyHash = _hash.CreateHash(request.userDto.ApiKeyHash);
             request.userDto.ApiSecretValueHash = _hash.CreateHash(request.userDto.ApiSecretValueHash);
 
