@@ -1,4 +1,5 @@
-﻿using BAF.UseCases.Symbol.Dto;
+﻿using BAF.UseCases.Dto;
+using BAF.UseCases.Symbol.Dto;
 using BAF.UseCases.Symbol.GetEntryPointBySymbol;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace BAF.Controller.Controllers
         }
 
         [HttpGet("get-open-position/{symbol}")]
-        public async Task<OpenPositionDto> GetOpenPositionBySymbolAsync(string symbol)
+        public async Task<OpenPositionDto> GetOpenPositionBySymbolAsync([FromQuery]SymbolDto symbol)
         {
             // TODO Apply here cancellation token and figure out why it needs
             return await _mediator.Send(new GetOpenPositionBySymbolQuery(symbol));

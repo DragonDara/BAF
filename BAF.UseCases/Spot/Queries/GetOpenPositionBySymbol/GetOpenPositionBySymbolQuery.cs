@@ -1,4 +1,5 @@
-﻿using BAF.UseCases.Symbol.Dto;
+﻿using BAF.UseCases.Dto;
+using BAF.UseCases.Symbol.Dto;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace BAF.UseCases.Symbol.GetEntryPointBySymbol
 {
     public class GetOpenPositionBySymbolQuery: IRequest<OpenPositionDto>
     {
-        public string Symbol;
-        public GetOpenPositionBySymbolQuery(string symbol)
+        public SymbolDto Symbol;
+        public GetOpenPositionBySymbolQuery(SymbolDto symbol)
         {
             Symbol = symbol;
         }
