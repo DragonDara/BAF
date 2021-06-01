@@ -2,7 +2,7 @@
 using BAF.DataAccess.SqlServer;
 using BAF.Entities;
 using BAF.Entities.Exceptions;
-using BAF.UseCases.Auth.ApplicationServices;
+using BAF.UseCases.ApplicationServices;
 using Binance.Net.Interfaces;
 using MediatR;
 using System;

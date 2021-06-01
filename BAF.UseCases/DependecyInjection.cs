@@ -1,4 +1,4 @@
-﻿using BAF.UseCases.Auth.ApplicationServices;
+﻿using BAF.UseCases.ApplicationServices;
 using Binance.Net;
 using Binance.Net.Interfaces;
 using MediatR;

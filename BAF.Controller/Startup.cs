@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BAF.Controller.Middleware;
+using BAF.Controller.Initializer;
 
 namespace BAF.Controller
 {
@@ -30,6 +31,7 @@ namespace BAF.Controller
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDataAccessSqlServer(Configuration["ConnectionString:SqlServer"]);
+            services.AddAsyncInitializer<DatabaseInitializer>();
             services.AddUseCases();
             services.AddControllers();
             services.AddSwaggerGen(c =>

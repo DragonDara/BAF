@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAF.UseCases.Auth.ApplicationServices
+namespace BAF.UseCases.ApplicationServices
 {
     public class HashBuilder
     {
