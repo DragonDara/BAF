@@ -40,8 +40,8 @@ namespace BAF.UseCases.Symbol.GetEntryPointBySymbol
             if (!isExist) throw new BalanceNotFoundException(request.Symbol.BaseCurrency);
 
 
-            var currentPrice = await _binance.Spot.Market.GetPriceAsync(request.Symbol.BaseQuote, cancellationToken);
-            var orders = await _binance.Spot.Order.GetAllOrdersAsync(request.Symbol.BaseQuote, ct: cancellationToken);
+            var currentPrice = await _binance.Spot.Market.GetPriceAsync(request.Symbol.GetSymbol(), cancellationToken);
+            var orders = await _binance.Spot.Order.GetAllOrdersAsync(request.Symbol.GetSymbol(), ct: cancellationToken);
             var buyPrice = orders.Data.Where(o => o.Status == OrderStatus.Filled && o.Side == OrderSide.Buy).Last();
 
             var symbolEntryPointDto1 = _mapper.Map<OpenPositionDto>(currentPrice.Data);

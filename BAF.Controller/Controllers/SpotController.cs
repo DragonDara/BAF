@@ -23,7 +23,7 @@ namespace BAF.Controller.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpGet("get-open-position/{symbol}")]
+        [HttpGet("get-open-position")]
         public async Task<OpenPositionDto> GetOpenPositionBySymbolAsync([FromQuery]SymbolDto symbol)
         {
             // TODO Apply here cancellation token and figure out why it needs
