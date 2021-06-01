@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAF.UseCases.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,18 @@ namespace BAF.UseCases.Symbol.Dto
                 var profit = (CurrentPrice - PriceBuy) / PriceBuy * 100;
                 return profit >= 0 ? Convert.ToDecimal(String.Format("{0:0.00}", profit)) 
                     : -1 * Convert.ToDecimal(String.Format("{0:0.00}", Math.Abs(profit)));
+            }
+        }
+        private char sign;
+        public char Sign
+        {
+            get
+            {
+                return sign;
+            }
+            set
+            {
+                sign = CurrentPrice >= PriceBuy ? '+' : '-';
             }
         }
 

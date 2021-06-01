@@ -21,10 +21,12 @@ namespace BAF.UseCases.Mapping
 
             CreateMap<BinanceOrder, OpenPositionDto>()
                 .ForMember(dst => dst.PriceBuy, opt => opt.MapFrom(src => src.Price))
+                .ForMember(dst => dst.Symbol, opt => opt.MapFrom(src => src.Symbol))
                 .ForAllOtherMembers(mem => mem.Ignore());
 
             CreateMap<OpenPositionDto, OpenPositionDto>()
-                .ForMember(src => src.PriceBuy, opt => opt.MapFrom<PriceBuyResolver>());
+                .ForMember(dst => dst.PriceBuy, opt => opt.MapFrom<PriceBuyResolver>())
+                .ForMember(dst => dst.Symbol, opt => opt.MapFrom<SymbolResolver>());
         }
     }
 }
