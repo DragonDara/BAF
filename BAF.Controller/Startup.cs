@@ -46,9 +46,11 @@ namespace BAF.Controller
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAF.Controller v1"));
+              
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BAF.Controller v1"));
 
             app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
