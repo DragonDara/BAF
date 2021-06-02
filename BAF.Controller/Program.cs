@@ -15,7 +15,7 @@ namespace BAF.Controller
         {
             var host = CreateHostBuilder(args).Build();
 
-            await host.InitAsync();
+            //await host.InitAsync();
             await host.RunAsync();
         }
 

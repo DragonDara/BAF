@@ -19,15 +19,11 @@ namespace BAF.UseCases.Symbol.GetEntryPointBySymbol
     {
         private readonly IBinanceClient _binance;
         private readonly IMapper _mapper;
-        private readonly IApplicationDbContext _context;
-        private readonly HashBuilder _hash;
 
-        public GetOpenPositionBySymbolHandler(IBinanceClient binance, IMapper mapper, IApplicationDbContext context, HashBuilder hash)
+        public GetOpenPositionBySymbolHandler(IBinanceClient binance, IMapper mapper)
         {
             _binance = binance ?? throw new ArgumentNullException(nameof(binance));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _hash = hash ?? throw new ArgumentNullException(nameof(hash));
         }
 
         public async Task<OpenPositionDto> Handle(GetOpenPositionBySymbolQuery request, CancellationToken cancellationToken)
