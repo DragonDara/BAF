@@ -24,7 +24,8 @@ namespace BAF.Controller.Middleware
         private static readonly IDictionary<Type, int> exceptionStatusCodes = new Dictionary<Type, int>
         {
             [typeof(UserAlreadyExistsException)] = StatusCodes.Status409Conflict,
-            [typeof(BalanceNotFoundException)] = StatusCodes.Status404NotFound
+            [typeof(BalanceNotFoundException)] = StatusCodes.Status404NotFound,
+            [typeof(BalancesNotFoundException)] = StatusCodes.Status404NotFound
         };
 
         public CustomExceptionMiddleware(
@@ -84,6 +85,11 @@ namespace BAF.Controller.Middleware
                 case BalanceNotFoundException balanceNotFoundException:
                     AddExceptionInfoToProblemDetails(problem, balanceNotFoundException);
                     statusCode = GetStatusCodeByExceptionType(balanceNotFoundException.GetType());
+                    break;
+
+                case BalancesNotFoundException balancesNotFoundException:
+                    AddExceptionInfoToProblemDetails(problem, balancesNotFoundException);
+                    statusCode = GetStatusCodeByExceptionType(balancesNotFoundException.GetType());
                     break;
 
                 default:

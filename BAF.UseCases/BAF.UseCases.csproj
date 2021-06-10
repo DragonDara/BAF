@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BAF.Common\BAF.Common.csproj" />
     <ProjectReference Include="..\BAF.DataAccess.SqlServer\BAF.DataAccess.SqlServer.csproj" />
   </ItemGroup>
 

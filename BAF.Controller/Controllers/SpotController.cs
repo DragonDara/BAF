@@ -1,4 +1,5 @@
 ﻿using BAF.UseCases.Dto;
+using BAF.UseCases.Spot.Queries.GetOpenPositions;
 using BAF.UseCases.Symbol.Dto;
 using BAF.UseCases.Symbol.GetEntryPointBySymbol;
 using MediatR;
@@ -21,6 +22,13 @@ namespace BAF.Controller.Controllers
         public SpotController(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        }
+
+        [HttpGet("get-open-positions")]
+        public async Task<IList<OpenPositionDto>> GetOpenPositionBySymbolAsync()
+        {
+            // TODO Apply here cancellation token and figure out why it needs
+            return await _mediator.Send(new GetOpenPositionsQuery());
         }
 
         [HttpGet("get-open-position")]

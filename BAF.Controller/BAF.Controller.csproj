@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BAF.DataAccess.SqlServer\BAF.DataAccess.SqlServer.csproj" />
     <ProjectReference Include="..\BAF.UseCases\BAF.UseCases.csproj" />
   </ItemGroup>
 
