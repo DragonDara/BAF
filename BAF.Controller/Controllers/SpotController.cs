@@ -2,6 +2,7 @@
 using BAF.UseCases.Spot.Queries.GetOpenPositions;
 using BAF.UseCases.Symbol.Dto;
 using BAF.UseCases.Symbol.GetEntryPointBySymbol;
+using BAF.UseCases.Wallet.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,7 @@ namespace BAF.Controller.Controllers
         [HttpGet("get-open-positions")]
         public async Task<IList<OpenPositionDto>> GetOpenPositionBySymbolAsync()
         {
+            await _mediator.Publish(new OpenPositionNotificationDto());
             // TODO Apply here cancellation token and figure out why it needs
             return await _mediator.Send(new GetOpenPositionsQuery());
         }
